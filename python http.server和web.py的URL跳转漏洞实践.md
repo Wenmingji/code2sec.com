@@ -134,9 +134,12 @@ __author__ = 'bit4'
 __github__ = 'https://github.com/bit4woo'
 
 '''
-漏洞名称：Struts2漏洞S2-045
-实验环境：VulApps/s/struts2/s2-045
+漏洞名称：
+实验环境：
 参考链接：https://www.leavesongs.com/PENETRATION/python-http-server-open-redirect-vulnerability.html
+payload： http://127.0.0.1:8080////static%2fcss%2f@www.example.com/..%2f
+说明：根据p神的文章，是只有处理静态文件的代码是继承了SimpleHTTPRequestHandler类，才会受到影响
+所以，这里的提供的url，最好是静态文件的url，比如 js、css、图片的完整url。
 测试状态：
 '''
 
@@ -144,13 +147,6 @@ import requests
 import urlparse
 import sys
 import urllib
-
-'''
-payload： http://127.0.0.1:8080////static%2fcss%2f@www.example.com/..%2f
-https://www.leavesongs.com/PENETRATION/python-http-server-open-redirect-vulnerability.html
-说明：根据p神的文章，是只有处理静态文件的代码是继承了SimpleHTTPRequestHandler类，才会受到影响
-所以，这里的提供的url，最好是静态文件的url，比如 js、css、图片的完整url。
-'''
 
 
 '''
